@@ -5,13 +5,13 @@
 - **Promise:** Stronger, longer, healthier natural lashes without the extension-adhesive conflict or eye-irritation risk associated with the prostaglandin-based serums most competitors use.
 - **Customer (one paragraph):** Primarily women 22–38 who currently or recently wore lash extensions and have noticed real damage to their natural lashes underneath — breakage, thinning, patchiness. She's already spending on lash maintenance, is beauty-engaged on Instagram/TikTok, and is skeptical by default because she's tried products that overpromised before. A secondary, overlapping segment: young mothers who are newly ingredient-conscious across their whole routine (not just lashes) and actively seek "clean" formulations.
 - **Unique mechanism:** A confirmed prostaglandin-free, vegan formula (peptides, hyaluronic acid, vegetable keratin, biotin, pumpkin seed oil) built specifically to be safe under extensions and to reverse the exact damage pattern extension wear causes — backed by both founder credibility (six years as a working lash tech) and clinically proven results.
-- **Price:** €19.99 for one serum, €35 for two (both below the £35–38 single-unit price of the two named category leaders).
+- **Price:** €29.49 for one serum, €47.99 for two (both below the £35–38 single-unit price of the two named category leaders).
 
 ## 2. Customer (condensed avatar)
 "Damaged-Lash Dana," 22–38, already a regular lash-extension client, values ingredient honesty and visible proof over hype. Deeper pain: feels she may have done lasting damage chasing a look. Deeper want: freedom to skip a fill without feeling under-done — reclaiming a small piece of physical resilience. Top objection: fear of the same eye irritation she's read about with other serums. See `avatar-sheet.md` for full detail, including 20 verbatim customer phrases.
 
 ## 3. Offer (condensed offer brief)
-One serum, €19.99; two-pack, €35. Positioned against Nanolash and UKLash (both prostaglandin-based, £35–38/unit, real documented irritation complaints) and Glow For It (peptide-based, well-reviewed, no organic/vegan-specific positioning found). Full detail, including all currently-unverified product facts that must be confirmed with the founder, in `offerbrief.md`.
+One serum, €29.49; two-pack, €47.99. Positioned against Nanolash and UKLash (both prostaglandin-based, £35–38/unit, real documented irritation complaints) and Glow For It (peptide-based, well-reviewed, no organic/vegan-specific positioning found). Full detail, including all currently-unverified product facts that must be confirmed with the founder, in `offerbrief.md`.
 
 ## 4. Necessary Beliefs (condensed)
 1. **My damage is from extensions, not just "how my lashes are"** — bridge: name the ~30% extension-damage statistic.
@@ -19,7 +19,7 @@ One serum, €19.99; two-pack, €35. Positioned against Nanolash and UKLash (bo
 3. **This can work without the irritation risk I've heard about** — bridge: confirmed prostaglandin-free vs. prostaglandin-based competitors.
 4. **Organic/vegan doesn't mean weaker results** — bridge: founder-credibility now, results proof once available.
 5. **This brand actually understands my routine** — bridge: the six-year lash-tech founder story.
-6. **€19.99–35 is fair, not a red flag** — bridge: reframe lower price as "no markup for a risk you don't want."
+6. **€29.49–47.99 is fair, not a red flag** — bridge: reframe lower price as "no markup for a risk you don't want."
 
 Full version with bridges in `necessary-beliefs.md`.
 

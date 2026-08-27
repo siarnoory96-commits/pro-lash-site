@@ -128,7 +128,7 @@ The clearest ownable angle found in research: **a lash-technician-formulated, ve
 
 ## 10. Pricing Context
 
-Founder's stated pricing: **1 serum = €19.99, 2 serums = €35** (a bundle discount of ~12.5% per unit). Against category comps of **£35.50–£38.00 per single 3ml unit** (Nanolash, UKLash) — assuming comparable size, Pro Lash is priced meaningfully below both category leaders. This is a real strategic choice to flag for Lesson 2/3: position as *accessible without being cheap-looking* (avoid a race-to-the-bottom read), and lean on founder-credibility + ingredient-safety proof to justify the lower price as "no markup for a prostaglandin risk you don't want," not "lower quality for less money."
+Founder's stated pricing: **1 serum = €29.49, 2 serums = €47.99** (a bundle discount of ~18.6% per unit). Against category comps of **£35.50–£38.00 per single 3ml unit** (Nanolash, UKLash) — assuming comparable size, Pro Lash is priced meaningfully below both category leaders. This is a real strategic choice to flag for Lesson 2/3: position as *accessible without being cheap-looking* (avoid a race-to-the-bottom read), and lean on founder-credibility + ingredient-safety proof to justify the lower price as "no markup for a prostaglandin risk you don't want," not "lower quality for less money."
 
 ---
 

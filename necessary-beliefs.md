@@ -33,7 +33,7 @@
 - **Bridge:** The founder's six years as a working lash technician, watching this exact damage happen to client after client, is not a marketing story — it's the literal origin of the product. Leading with this founder story (Lesson 2's Brand Story) does more trust-building work than any ingredient claim can, especially pre-launch when there's no customer proof yet.
 
 ## Belief 6
-**I believe that…** €19.99–35 for this serum is a fair price, not a "too cheap to be good" red flag.
+**I believe that…** €29.49–47.99 for this serum is a fair price, not a "too cheap to be good" red flag.
 
 - **Current belief:** Category anchors (Nanolash, UKLash) sit at £35–38 for a single unit — a prospect comparing prices might read Pro Lash's lower price as a quality downgrade.
 - **Bridge:** Frame the lower price as a deliberate choice tied to the brand's positioning, not a compromise: "no markup for a risk you don't want" (i.e., not charging a premium for a prostaglandin-based mechanism the brand doesn't use) — turning price into a proof point for the safety story in Belief 3, rather than something the copy has to apologize for.

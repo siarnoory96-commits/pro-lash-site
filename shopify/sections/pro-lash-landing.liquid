@@ -1,0 +1,242 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:ital,wght@0,500;0,600;1,400;1,500;1,600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+<div id="pro-lash-landing">
+<style>
+  #pro-lash-landing {
+    --canvas: #FBF5F1; --surface-1: #FFFFFF; --surface-2: #F3E1DA; --surface-2-strong: #EFC9C1;
+    --text-primary: #2B211D; --text-secondary: rgba(43,33,29,0.66); --text-tertiary: rgba(43,33,29,0.45);
+    --border-subtle: rgba(43,33,29,0.10); --border-emphasis: rgba(43,33,29,0.20);
+    --accent: #BD6F63; --accent-ink: #9C564C; --gold: #C7A66B; --blush: #EFC7C0;
+    --font-display: 'Manrope', -apple-system, sans-serif; --font-accent: 'Fraunces', Georgia, serif; --font-mono: 'JetBrains Mono', monospace;
+    display: block; background: var(--canvas); color: var(--text-primary); font-family: var(--font-display);
+    font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  }
+  #pro-lash-landing * { box-sizing: border-box; }
+  #pro-lash-landing img { max-width: 100%; display: block; }
+  #pro-lash-landing a { color: inherit; }
+  #pro-lash-landing .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+  #pro-lash-landing .eyebrow { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-ink); font-weight: 600; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+  #pro-lash-landing .eyebrow::before { content: ""; width: 16px; height: 1px; background: var(--accent); }
+  #pro-lash-landing .accent-word { font-family: var(--font-accent); font-style: italic; font-weight: 500; color: var(--accent-ink); }
+  #pro-lash-landing h1, #pro-lash-landing h2, #pro-lash-landing h3 { margin: 0; font-weight: 700; letter-spacing: -0.01em; }
+  #pro-lash-landing h2 { font-size: clamp(30px, 4vw, 44px); line-height: 1.15; }
+  #pro-lash-landing p { margin: 0; }
+  #pro-lash-landing .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: 999px; font-weight: 700; font-size: 14.5px; text-decoration: none; border: 1px solid transparent; cursor: pointer; min-height: 44px; transition: transform .15s ease; }
+  #pro-lash-landing .btn:hover { transform: translateY(-1px); }
+  #pro-lash-landing .btn-primary { background: var(--accent); color: #fff; }
+  #pro-lash-landing .btn-secondary { background: rgba(255,255,255,0.14); color: #fff; border-color: rgba(255,255,255,0.4); backdrop-filter: blur(6px); }
+  #pro-lash-landing .btn-secondary.on-light { background: transparent; color: var(--text-primary); border-color: var(--border-emphasis); }
+  #pro-lash-landing .hero { position: relative; min-height: 90vh; overflow: hidden; display: flex; align-items: center; }
+  #pro-lash-landing .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+  #pro-lash-landing .hero-scrim { position: absolute; inset: 0; z-index: 1; background: linear-gradient(100deg, rgba(43,33,29,0.62) 0%, rgba(43,33,29,0.38) 42%, rgba(43,33,29,0.12) 70%, rgba(43,33,29,0.05) 100%); }
+  #pro-lash-landing .hero-content { position: relative; z-index: 2; max-width: 640px; padding: 0 24px; margin-left: max(24px, calc((100vw - 1140px) / 2 + 24px)); }
+  #pro-lash-landing .hero-content .eyebrow { color: var(--blush); }
+  #pro-lash-landing .hero-content .eyebrow::before { background: var(--blush); }
+  #pro-lash-landing .hero-content h1 { font-size: clamp(38px, 6vw, 64px); color: #fff; line-height: 1.08; margin-bottom: 20px; }
+  #pro-lash-landing .hero-content h1 .accent-word { color: var(--blush); }
+  #pro-lash-landing .hero-content .sub { font-size: clamp(16px, 2vw, 19px); color: rgba(255,255,255,0.86); max-width: 480px; margin-bottom: 34px; }
+  #pro-lash-landing .hero-cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+  #pro-lash-landing section { padding: 80px 0; position: relative; overflow: hidden; }
+  #pro-lash-landing section.alt { background: var(--surface-2); }
+  #pro-lash-landing .section-head { max-width: 680px; margin-bottom: 40px; }
+  #pro-lash-landing .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+  #pro-lash-landing .section-head p.lede { font-size: 17.5px; color: var(--text-secondary); margin-top: 14px; }
+  #pro-lash-landing .grid { display: grid; gap: 22px; }
+  #pro-lash-landing .grid-2 { grid-template-columns: 1fr 1fr; }
+  #pro-lash-landing .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  #pro-lash-landing .card { background: var(--surface-1); border: 1px solid var(--border-subtle); border-radius: 18px; padding: 30px; }
+  #pro-lash-landing .card.elevated { background: linear-gradient(160deg, #fff 0%, var(--surface-2) 130%); box-shadow: 0 24px 48px -30px rgba(43,33,29,0.4); }
+  #pro-lash-landing blockquote { margin: 0; padding: 22px 26px; border-left: 3px solid var(--accent); background: var(--surface-1); border-radius: 0 10px 10px 0; font-size: 17px; color: var(--text-primary); }
+  #pro-lash-landing blockquote cite { display: block; margin-top: 10px; font-family: var(--font-mono); font-size: 11px; color: var(--text-tertiary); font-style: normal; text-transform: uppercase; letter-spacing: .06em; }
+  #pro-lash-landing .stat-strip .num { font-family: var(--font-accent); font-style: italic; font-weight: 500; font-size: 56px; color: var(--accent-ink); line-height: 1; }
+  #pro-lash-landing .step-num { font-family: var(--font-accent); font-style: italic; font-weight: 500; font-size: 32px; color: var(--surface-2-strong); margin-bottom: 12px; }
+  #pro-lash-landing .price-card { border-radius: 18px; padding: 36px 30px; border: 1px solid var(--border-subtle); background: var(--surface-1); position: relative; }
+  #pro-lash-landing .price-card.featured { border: 2px solid var(--accent); background: linear-gradient(160deg, #fff 0%, var(--surface-2) 140%); box-shadow: 0 24px 48px -30px rgba(43,33,29,0.4); }
+  #pro-lash-landing .price-card .tag { position: absolute; top: -13px; left: 30px; background: var(--accent); color: #fff; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; padding: 5px 12px; border-radius: 999px; }
+  #pro-lash-landing .price-card .price { font-family: var(--font-accent); font-style: italic; font-weight: 500; font-size: 48px; margin: 14px 0 4px; }
+  #pro-lash-landing .price-card .per { font-size: 13px; color: var(--text-tertiary); margin-bottom: 20px; }
+  #pro-lash-landing .price-card ul { list-style: none; margin: 0 0 24px; padding: 0; }
+  #pro-lash-landing .price-card li { padding: 8px 0; font-size: 14.5px; color: var(--text-secondary); display: flex; gap: 10px; }
+  #pro-lash-landing .price-card li::before { content: "✓"; color: var(--accent-ink); font-weight: 700; }
+  #pro-lash-landing .faq-item { border-bottom: 1px solid var(--border-subtle); padding: 24px 0; }
+  #pro-lash-landing .faq-item:last-child { border-bottom: none; }
+  #pro-lash-landing .faq-item h3 { font-size: 17px; margin-bottom: 10px; }
+  #pro-lash-landing .faq-item p { color: var(--text-secondary); font-size: 15px; }
+  #pro-lash-landing .founder-photo-wrap { border-radius: 18px; overflow: hidden; border: 1px solid var(--border-subtle); aspect-ratio: 4/5; }
+  #pro-lash-landing .founder-photo-wrap img { width: 100%; height: 100%; object-fit: cover; }
+  #pro-lash-landing .close-band { background: var(--text-primary); border-radius: 18px; padding: 80px 40px; text-align: center; }
+  #pro-lash-landing .close-band h2 { color: var(--canvas); }
+  #pro-lash-landing .close-band .accent-word { color: var(--blush); }
+  #pro-lash-landing .close-band p { color: rgba(251,245,241,0.7); margin-top: 16px; max-width: 480px; margin-left: auto; margin-right: auto; }
+  #pro-lash-landing .close-band .btn-primary { margin-top: 30px; }
+  #pro-lash-landing .fade { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
+  #pro-lash-landing .fade.in { opacity: 1; transform: translateY(0); }
+  @media (max-width: 860px) {
+    #pro-lash-landing .grid-2, #pro-lash-landing .grid-3 { grid-template-columns: 1fr; }
+    #pro-lash-landing .hero-content { margin-left: 0; max-width: 90%; }
+    #pro-lash-landing .hero-content h1 { font-size: 40px; }
+  }
+</style>
+
+<section class="hero">
+  <video class="hero-video" autoplay muted loop playsinline poster="{{ 'pro-lash-hero-poster.jpg' | asset_url }}">
+    <source src="{{ 'pro-lash-hero.mp4' | asset_url }}" type="video/mp4">
+  </video>
+  <div class="hero-scrim"></div>
+  <div class="hero-content">
+    <div class="eyebrow">Vegan · Prostaglandin-Free · Extension-Safe</div>
+    <h1>Wear the extensions.<br><span class="accent-word">Grow</span> what's underneath.</h1>
+    <p class="sub">The lash serum made by someone who's done extensions for six years — so you don't have to choose.</p>
+    <div class="hero-cta-row">
+      <a href="#pl-offer" class="btn btn-primary">Shop Pro Lash</a>
+      <a href="#pl-mechanism" class="btn btn-secondary">See how it works</a>
+    </div>
+  </div>
+</section>
+
+<section id="pl-problem">
+  <div class="wrap">
+    <div class="section-head fade">
+      <div class="eyebrow">The Problem</div>
+      <h2>Your lashes didn't just get thinner. Something happened to them.</h2>
+      <p class="lede">You love your extensions — the fill every three weeks, the length, waking up already done. But underneath them, something's been quietly changing.</p>
+    </div>
+    <div class="grid grid-2">
+      <div class="fade">
+        <div class="grid" style="gap:16px;">
+          <blockquote>"Puffy and red lash lines" — natural lashes "falling out quickly and growing back slowly."<cite>Extension-wear pattern, category research</cite></blockquote>
+          <blockquote>Reviewers describe their natural lashes as <em>"ruined"</em> after years of extension wear.<cite>Category research</cite></blockquote>
+        </div>
+      </div>
+      <div class="card elevated fade">
+        <div class="stat-strip"><span class="num">~30%</span></div>
+        <p style="margin-top:10px; color:var(--text-secondary); font-size:15px;">of extension wearers experience documented lash damage — breakage, thinning, or loss — from the extensions themselves.</p>
+        <p style="margin-top:14px; font-size:12.5px; color:var(--text-tertiary);">Journal of Cosmetic Dermatology, via category research</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pl-mechanism" class="alt">
+  <div class="wrap">
+    <div class="section-head center fade" style="margin-left:auto; margin-right:auto;">
+      <div class="eyebrow" style="justify-content:center;">How It Works</div>
+      <h2>Prostaglandin-free. Extension-safe. <span class="accent-word">No trade-off.</span></h2>
+      <p class="lede">Most category leaders lean on prostaglandin-style actives — the exact ingredient class behind the eye-irritation complaints you've probably read about. Pro Lash doesn't.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card fade"><div class="step-num">01</div><h3>No prostaglandins</h3><p style="margin-top:10px; color:var(--text-secondary); font-size:15px;">Peptides, hyaluronic acid, vegetable keratin, biotin, and pumpkin seed oil do the work instead — no fine print.</p></div>
+      <div class="card fade"><div class="step-num">02</div><h3>Safe under extensions</h3><p style="margin-top:10px; color:var(--text-secondary); font-size:15px;">Formulated to be worn safely alongside your extensions — no break required to start healing.</p></div>
+      <div class="card fade"><div class="step-num">03</div><h3>Nightly, and done</h3><p style="margin-top:10px; color:var(--text-secondary); font-size:15px;">One pass along the lash line, nightly. Vegan, organic, and clinically proven.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="pl-founder">
+  <div class="wrap">
+    <div class="grid grid-2" style="align-items:center; gap:48px;">
+      <div class="founder-photo-wrap fade">
+        <img src="{{ 'pro-lash-founder.jpg' | asset_url }}" alt="Pro Lash serum, held" loading="lazy">
+      </div>
+      <div class="fade">
+        <div class="eyebrow">Why We Built This</div>
+        <h2>Six years of watching this happen, one client at a time.</h2>
+        <p style="margin-top:18px; font-size:17px; color:var(--text-secondary);">Pro Lash was formulated by someone who spent six years as a working lash technician — watching client after client come in with lash lines that had quietly thinned out underneath their extensions.</p>
+        <p style="margin-top:14px; font-size:17px; color:var(--text-secondary);">Not because anyone did anything wrong. Because nobody had built a serum for the person who wasn't going to stop wearing extensions to fix it. So we built one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pl-proof" class="alt">
+  <div class="wrap">
+    <div class="section-head fade">
+      <div class="eyebrow">The Proof</div>
+      <h2>Organic and vegan doesn't mean weaker.</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card fade"><span style="font-family:var(--font-mono); font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--text-tertiary);">Confirmed</span><h3 style="margin-top:10px; font-size:18px;">Prostaglandin-free</h3></div>
+      <div class="card fade"><span style="font-family:var(--font-mono); font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--text-tertiary);">Confirmed</span><h3 style="margin-top:10px; font-size:18px;">Vegan &amp; organic</h3></div>
+      <div class="card fade"><span style="font-family:var(--font-mono); font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--text-tertiary);">Confirmed</span><h3 style="margin-top:10px; font-size:18px;">Clinically proven</h3></div>
+    </div>
+    <p class="fade" style="margin-top:22px; font-size:14.5px; color:var(--text-tertiary);">Formulated with peptides, hyaluronic acid, vegetable keratin, biotin, and pumpkin seed oil.</p>
+  </div>
+</section>
+
+<section id="pl-offer">
+  <div class="wrap">
+    <div class="section-head center fade" style="margin-left:auto; margin-right:auto;">
+      <div class="eyebrow" style="justify-content:center;">The Offer</div>
+      <h2>No markup for a risk you don't want.</h2>
+      <p class="lede">Category leaders charge £35–38 for a single comparable unit. Here's ours.</p>
+    </div>
+    <div class="grid grid-2" style="max-width:720px; margin:0 auto;">
+      <div class="price-card fade">
+        <h3 style="font-size:15px; text-transform:uppercase; letter-spacing:.04em; color:var(--text-tertiary);">Single</h3>
+        <div class="price">€29.49</div>
+        <div class="per">one serum</div>
+        <ul><li>Vegan &amp; prostaglandin-free</li><li>Extension-safe formula</li><li>Nightly application</li></ul>
+        <a href="/products/pro-lash-serum-single" class="btn btn-secondary on-light" style="width:100%;">Shop single</a>
+      </div>
+      <div class="price-card featured fade">
+        <div class="tag">Best value</div>
+        <h3 style="font-size:15px; text-transform:uppercase; letter-spacing:.04em; color:var(--text-tertiary);">Two-pack</h3>
+        <div class="price">€47.99</div>
+        <div class="per">two serums · save vs. buying twice</div>
+        <ul><li>Everything in Single, ×2</li><li>For you + a friend, or a longer routine</li><li>Same formula, same proof</li></ul>
+        <a href="/products/pro-lash-serum-two-pack" class="btn btn-primary" style="width:100%;">Shop two-pack</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pl-faq" class="alt">
+  <div class="wrap" style="max-width:760px;">
+    <div class="section-head fade">
+      <div class="eyebrow">Questions</div>
+      <h2>Before you decide</h2>
+    </div>
+    <div class="fade">
+      <div class="faq-item"><h3>Will this irritate my eyes like other serums I've read about?</h3><p>No prostaglandins — that's the ingredient class behind most of those complaints. Pro Lash is built on peptides, hyaluronic acid, vegetable keratin, and biotin instead.</p></div>
+      <div class="faq-item"><h3>Can I actually use this while I have extensions on?</h3><p>Yes. Pro Lash is formulated to be worn safely underneath your extensions — you don't need to take a break to start using it.</p></div>
+      <div class="faq-item"><h3>Isn't organic/vegan usually slower or weaker?</h3><p>Not here — the formula is clinically proven. Vegan and effective aren't a trade-off in this case.</p></div>
+      <div class="faq-item"><h3>Why is this cheaper than the big names?</h3><p>No markup for a risk you don't want. We're not chasing premium-for-premium's-sake — we're pricing to actually solve this problem for the person facing it.</p></div>
+      <div class="faq-item"><h3>I've tried lash serums before and nothing happened.</h3><p>Fair — a lot of them don't work as advertised. Pro Lash's results are clinically proven, and it's formulated by someone who's watched this exact problem for six years, not a generic beauty lab.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="pl-close">
+  <div class="wrap">
+    <div class="close-band fade">
+      <div class="eyebrow" style="justify-content:center; color:var(--blush);">Ready?</div>
+      <h2>Start growing <span class="accent-word">what's yours</span>.</h2>
+      <p>Vegan, prostaglandin-free, and safe to wear underneath your extensions — from €29.49.</p>
+      <a href="#pl-offer" class="btn btn-primary">Shop Pro Lash</a>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function() {
+    var root = document.getElementById('pro-lash-landing');
+    if (!root || root.dataset.plInit) return;
+    root.dataset.plInit = '1';
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) { entry.target.classList.add('in'); observer.unobserve(entry.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    root.querySelectorAll('.fade').forEach(function(el) { observer.observe(el); });
+  })();
+</script>
+</div>
+
+{% schema %}
+{
+  "name": "Pro Lash Landing",
+  "settings": []
+}
+{% endschema %}

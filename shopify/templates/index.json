@@ -1,0 +1,9 @@
+{
+  "sections": {
+    "pro_lash_landing": {
+      "type": "pro-lash-landing",
+      "settings": {}
+    }
+  },
+  "order": ["pro_lash_landing"]
+}

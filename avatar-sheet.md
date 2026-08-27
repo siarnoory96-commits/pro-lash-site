@@ -6,7 +6,7 @@
 - **Name (archetypal):** "Damaged-Lash Dana" — a woman who has worn lash extensions long enough that her natural lashes have visibly suffered for it.
 - **Age range:** 22–38 (skews 25–34)
 - **Gender:** Women (cis and trans)
-- **Income / household income:** Mid-range disposable income for beauty spend — someone who already pays €50–100+/month on lash fills, so €19.99–35 for a serum is a minor add-on, not a stretch purchase.
+- **Income / household income:** Mid-range disposable income for beauty spend — someone who already pays €50–100+/month on lash fills, so €29.49–47.99 for a serum is a minor add-on, not a stretch purchase.
 - **Location / lifestyle context:** Urban/suburban, active on Instagram/TikTok, likely already a regular at a lash salon or was until the damage got bad enough to stop.
 - **Occupation / day-to-day reality:** Wide range — office workers, service industry, new mothers on leave or back at work; unified less by job and more by the fact that lash extensions are part of a maintained "put-together" self-presentation routine.
 - **Relationship and family status:** Mixed; the "Young Mothers" overlap segment is specifically postpartum or currently pregnant/nursing, newly ingredient-conscious in a way that spills over from skincare/nutrition into beauty.

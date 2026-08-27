@@ -1,0 +1,22 @@
+# Hermes orchestrator — Pro Lash
+# HONEST STATUS: written but NOT build-tested (no Docker on this machine). See Dockerfile.
+
+services:
+  hermes:
+    build: .
+    container_name: pro-lash-hermes
+    restart: unless-stopped          # survives a crash/reboot — the first half of "24/7"
+    env_file:
+      - .env                        # never committed — see .env.example for the shape
+    volumes:
+      - ./audit.log:/app/audit.log  # audit trail persists on the host, outside the container
+      - ./HALT:/app/HALT            # kill switch flag — touch this file on the host to halt
+    networks:
+      - hermes_net
+    # No ports exposed — this orchestrator has no inbound HTTP surface today.
+    # If an event/webhook trigger is added later (e.g. a Shopify order webhook),
+    # expose only the port that listener needs, nothing else.
+
+networks:
+  hermes_net:
+    driver: bridge

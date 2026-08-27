@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pro Lash — Growth · Mission Control</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:ital,wght@0,500;0,600;1,400;1,500;1,600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --canvas: #FBF5F1; --surface-1: #FFFFFF; --surface-2: #F3E1DA; --shell: #F7EDE7;
+    --text: #2B211D; --text-muted: rgba(43,33,29,0.66); --text-dim: rgba(43,33,29,0.45);
+    --border: rgba(43,33,29,0.10); --border-strong: rgba(43,33,29,0.20);
+    --accent: #BD6F63; --accent-soft: rgba(189,111,99,0.12);
+    --good: #4C6B4A; --warn: #B08A3E; --bad: #B24B3F;
+    --radius: 18px; --shadow: 0 20px 40px -28px rgba(43,33,29,0.35);
+    --font-display: 'Manrope', -apple-system, sans-serif; --font-accent: 'Fraunces', Georgia, serif; --font-mono: 'JetBrains Mono', monospace;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--canvas); color: var(--text); font-family: var(--font-display); font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  .eyebrow { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--text-dim); font-weight: 600; }
+
+  .shell { display: flex; min-height: 100vh; }
+  .sidebar { width: 232px; flex-shrink: 0; background: var(--shell); border-right: 1px solid var(--border); padding: 24px 18px; position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; }
+  .sidebar .logo { display: flex; align-items: center; gap: 9px; padding: 6px 8px 22px; }
+  .sidebar .logo img { height: 30px; }
+  .sidebar .logo span { font-family: var(--font-accent); font-style: italic; font-weight: 600; font-size: 17px; }
+  .navlink { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; font-size: 13.5px; font-weight: 600; color: var(--text-muted); margin-bottom: 2px; }
+  .navlink:hover { background: rgba(43,33,29,0.05); }
+  .navlink.active { background: var(--surface-1); color: var(--text); box-shadow: var(--shadow); }
+  .navlink .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border-strong); }
+  .navlink.active .dot { background: var(--accent); }
+  .sidebar-foot { margin-top: auto; padding: 12px 8px; font-family: var(--font-mono); font-size: 10.5px; color: var(--text-dim); }
+
+  .main { flex: 1; min-width: 0; }
+  .topbar { display: flex; align-items: center; justify-content: space-between; padding: 22px 36px; border-bottom: 1px solid var(--border); }
+  .topbar h1 { margin: 0; font-size: 22px; }
+  .topbar .meta { font-family: var(--font-mono); font-size: 11.5px; color: var(--text-dim); margin-top: 4px; }
+  .content { padding: 32px 36px 60px; }
+
+  .notice { background: var(--surface-2); border-radius: var(--radius); padding: 18px 22px; margin-bottom: 28px; font-size: 13.5px; color: var(--text-muted); }
+  .notice strong { color: var(--text); }
+
+  .grid { display: grid; gap: 18px; }
+  .kpi-grid { grid-template-columns: repeat(3, 1fr); margin-bottom: 28px; }
+  .card { background: var(--surface-1); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; }
+  .chip { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: .06em; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; display: inline-flex; align-items: center; gap: 5px; font-weight: 700; }
+  .chip.sample { background: rgba(43,33,29,0.06); color: var(--text-dim); }
+  .chip .dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+  .kpi .num { font-family: var(--font-accent); font-style: italic; font-weight: 500; font-size: 34px; line-height: 1; color: var(--text-dim); margin-top: 12px; filter: blur(0.4px); }
+  .kpi .label { font-family: var(--font-mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: .06em; color: var(--text-dim); margin-top: 8px; }
+  .kpi .connect { font-size: 12px; color: var(--accent); font-weight: 700; margin-top: 12px; display: inline-block; }
+
+  .source-table { width: 100%; border-collapse: collapse; }
+  .source-table th { text-align: left; font-family: var(--font-mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: .05em; color: var(--text-dim); padding: 10px 12px; border-bottom: 1px solid var(--border); }
+  .source-table td { padding: 12px; border-bottom: 1px solid var(--border); font-size: 13.5px; }
+  .source-table tr:last-child td { border-bottom: none; }
+
+  .fade { opacity: 0; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; }
+  .fade.in { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 980px) { .kpi-grid { grid-template-columns: 1fr; } .sidebar { position: fixed; z-index: 10; transform: translateX(-100%); } }
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="logo"><img src="assets/logo-icon.png" alt="Pro Lash"><span>Mission Control</span></div>
+    <a href="dashboard.html" class="navlink"><span class="dot"></span>Overview</a>
+    <a href="agents.html" class="navlink"><span class="dot"></span>Agents</a>
+    <a href="content.html" class="navlink"><span class="dot"></span>Content Pipeline</a>
+    <a href="growth.html" class="navlink active"><span class="dot"></span>Growth</a>
+    <div class="sidebar-foot">PRO LASH · V1<br>Built from design.md</div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div><h1>Growth</h1><div class="meta">Sales · Email · Social — no source connected yet</div></div>
+    </div>
+
+    <div class="content">
+      <div class="notice fade">
+        <strong>Nothing on this page is real yet — but Shopify is one step closer.</strong> The store is live at <a href="https://prolashserum.myshopify.com" style="color:var(--accent); font-weight:700;">prolashserum.myshopify.com</a> with both products listed — the site's buy buttons now link there for real. This dashboard's revenue card stays <span class="chip sample"><span class="dot"></span>Sample</span> until the read-only Admin API token is wired in (Settings → Apps and sales channels → Develop apps). Email and Social have no source at all yet. Every card below is clearly labeled and blurred so it can never be mistaken for a real number.
+      </div>
+
+      <div class="grid kpi-grid">
+        <div class="card kpi fade">
+          <span class="chip sample"><span class="dot"></span>Sample</span>
+          <div class="num">€0</div>
+          <div class="label">Revenue (30d)</div>
+          <span class="connect">Needs Shopify →</span>
+        </div>
+        <div class="card kpi fade">
+          <span class="chip sample"><span class="dot"></span>Sample</span>
+          <div class="num">0</div>
+          <div class="label">Email subscribers</div>
+          <span class="connect">Needs Klaviyo/Mailchimp →</span>
+        </div>
+        <div class="card kpi fade">
+          <span class="chip sample"><span class="dot"></span>Sample</span>
+          <div class="num">0</div>
+          <div class="label">Instagram + TikTok followers</div>
+          <span class="connect">Needs a social API/scraper →</span>
+        </div>
+      </div>
+
+      <div class="card fade">
+        <div class="eyebrow" style="margin-bottom:14px;">What each source needs to go live</div>
+        <table class="source-table">
+          <tr><th>Card</th><th>Source</th><th>What's needed</th></tr>
+          <tr><td>Revenue</td><td>Shopify</td><td>A Shopify store + read-only Admin API key</td></tr>
+          <tr><td>Email subscribers</td><td>Klaviyo / Mailchimp</td><td>An email platform account + API key</td></tr>
+          <tr><td>Social followers</td><td>Instagram / TikTok</td><td>Business API approval (not self-serve) or a social scraper via the Apify MCP</td></tr>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade').forEach((el, i) => { el.style.transitionDelay = (i*30)+'ms'; observer.observe(el); });
+</script>
+</body>
+</html>

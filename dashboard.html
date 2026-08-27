@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pro Lash — Mission Control</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:ital,wght@0,500;0,600;1,400;1,500;1,600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --canvas: #FBF5F1; --surface-1: #FFFFFF; --surface-2: #F3E1DA; --shell: #F7EDE7;
+    --text: #2B211D; --text-muted: rgba(43,33,29,0.66); --text-dim: rgba(43,33,29,0.45);
+    --border: rgba(43,33,29,0.10); --border-strong: rgba(43,33,29,0.20);
+    --accent: #BD6F63; --accent-soft: rgba(189,111,99,0.12);
+    --good: #4C6B4A; --warn: #B08A3E; --bad: #B24B3F;
+    --radius: 18px; --shadow: 0 20px 40px -28px rgba(43,33,29,0.35);
+    --font-display: 'Manrope', -apple-system, sans-serif; --font-accent: 'Fraunces', Georgia, serif; --font-mono: 'JetBrains Mono', monospace;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--canvas); color: var(--text); font-family: var(--font-display); font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  .eyebrow { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--text-dim); font-weight: 600; }
+  .accent-word { font-family: var(--font-accent); font-style: italic; font-weight: 500; color: var(--accent); }
+
+  .shell { display: flex; min-height: 100vh; }
+  .sidebar { width: 232px; flex-shrink: 0; background: var(--shell); border-right: 1px solid var(--border); padding: 24px 18px; position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; }
+  .sidebar .logo { display: flex; align-items: center; gap: 9px; padding: 6px 8px 22px; }
+  .sidebar .logo img { height: 30px; }
+  .sidebar .logo span { font-family: var(--font-accent); font-style: italic; font-weight: 600; font-size: 17px; }
+  .navlink { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; font-size: 13.5px; font-weight: 600; color: var(--text-muted); margin-bottom: 2px; }
+  .navlink:hover { background: rgba(43,33,29,0.05); }
+  .navlink.active { background: var(--surface-1); color: var(--text); box-shadow: var(--shadow); }
+  .navlink .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border-strong); }
+  .navlink.active .dot { background: var(--accent); }
+  .sidebar-foot { margin-top: auto; padding: 12px 8px; font-family: var(--font-mono); font-size: 10.5px; color: var(--text-dim); }
+
+  .main { flex: 1; min-width: 0; }
+  .topbar { display: flex; align-items: center; justify-content: space-between; padding: 22px 36px; border-bottom: 1px solid var(--border); }
+  .topbar h1 { margin: 0; font-size: 22px; }
+  .topbar .meta { font-family: var(--font-mono); font-size: 11.5px; color: var(--text-dim); margin-top: 4px; }
+  .btn-refresh { display: inline-flex; align-items: center; gap: 7px; padding: 9px 16px; border-radius: 999px; background: var(--surface-1); border: 1px solid var(--border-strong); font-size: 12.5px; font-weight: 700; cursor: pointer; }
+  .btn-refresh:hover { border-color: var(--accent); }
+
+  .content { padding: 32px 36px 60px; }
+  .briefing { background: var(--text); color: var(--canvas); border-radius: var(--radius); padding: 26px 28px; margin-bottom: 28px; }
+  .briefing .eyebrow { color: rgba(251,245,241,0.55); }
+  .briefing p { margin: 8px 0 0; font-size: 15.5px; color: rgba(251,245,241,0.85); }
+  .briefing .accent-word { color: #EFC7C0; }
+
+  .grid { display: grid; gap: 18px; }
+  .kpi-grid { grid-template-columns: repeat(4, 1fr); margin-bottom: 32px; }
+  .card { background: var(--surface-1); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; }
+  .card.elevated { box-shadow: var(--shadow); background: linear-gradient(160deg, #fff 0%, var(--surface-2) 150%); }
+  .chip { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: .06em; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; display: inline-flex; align-items: center; gap: 5px; font-weight: 700; }
+  .chip.live { background: rgba(76,107,74,0.12); color: var(--good); }
+  .chip.sample { background: rgba(43,33,29,0.06); color: var(--text-dim); }
+  .chip .dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+  .kpi .top-row { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
+  .kpi .num { font-family: var(--font-accent); font-style: italic; font-weight: 500; font-size: 38px; line-height: 1; color: var(--text); }
+  .kpi .label { font-family: var(--font-mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: .06em; color: var(--text-dim); margin-top: 8px; }
+
+  .two-col { grid-template-columns: 1.3fr 1fr; align-items: start; }
+  .panel-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+  .panel-head h2 { font-size: 15px; margin: 0; }
+  .panel-head a { font-family: var(--font-mono); font-size: 11px; color: var(--accent); font-weight: 700; }
+
+  .feed-item { display: flex; gap: 12px; padding: 13px 0; border-bottom: 1px solid var(--border); }
+  .feed-item:last-child { border-bottom: none; }
+  .feed-item .status-dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
+  .feed-item .status-dot.escalate { background: var(--warn); }
+  .feed-item .status-dot.handled { background: var(--good); }
+  .feed-item .ftext { font-size: 13.5px; }
+  .feed-item .ftime { font-family: var(--font-mono); font-size: 10.5px; color: var(--text-dim); margin-top: 3px; }
+
+  .readiness-row { display: flex; align-items: center; gap: 12px; padding: 9px 0; }
+  .readiness-row .n { font-family: var(--font-mono); font-size: 11px; color: var(--text-dim); width: 20px; }
+  .readiness-row .rt { flex: 1; font-size: 13px; }
+  .readiness-row .rt.done { color: var(--text-muted); text-decoration: line-through; text-decoration-color: var(--border-strong); }
+  .readiness-row .rstat { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: .04em; }
+  .readiness-row .rstat.done { color: var(--good); }
+  .readiness-row .rstat.now { color: var(--accent); }
+  .readiness-row .rstat.next { color: var(--text-dim); }
+  .bar-track { height: 6px; border-radius: 999px; background: var(--surface-2); overflow: hidden; margin: 14px 0 18px; }
+  .bar-fill { height: 100%; background: var(--accent); border-radius: 999px; }
+
+  .quicklinks { grid-template-columns: repeat(3, 1fr); margin-top: 28px; }
+  .qlink { display: block; padding: 20px; }
+  .qlink .qtitle { font-size: 15px; font-weight: 700; margin-top: 4px; }
+  .qlink .qdesc { font-size: 12.5px; color: var(--text-muted); margin-top: 6px; }
+
+  .fade { opacity: 0; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; }
+  .fade.in { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 980px) {
+    .kpi-grid { grid-template-columns: repeat(2,1fr); }
+    .two-col { grid-template-columns: 1fr; }
+    .quicklinks { grid-template-columns: 1fr; }
+    .sidebar { position: fixed; z-index: 10; transform: translateX(-100%); }
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="logo"><img src="assets/logo-icon.png" alt="Pro Lash"><span>Mission Control</span></div>
+    <a href="dashboard.html" class="navlink active"><span class="dot"></span>Overview</a>
+    <a href="agents.html" class="navlink"><span class="dot"></span>Agents</a>
+    <a href="content.html" class="navlink"><span class="dot"></span>Content Pipeline</a>
+    <a href="growth.html" class="navlink"><span class="dot"></span>Growth</a>
+    <div class="sidebar-foot">PRO LASH · V1<br>Built from design.md</div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div>
+        <h1>Overview</h1>
+        <div class="meta" id="dateLine">—</div>
+      </div>
+      <button class="btn-refresh" onclick="refreshAll()">↻ Refresh</button>
+    </div>
+
+    <div class="content">
+      <div class="briefing fade">
+        <div class="eyebrow">Today's Briefing</div>
+        <p><span class="accent-word">8 of 10</span> course lessons complete — site built, agents tested at 12/12, Shopify store live with real buy links, and the ops layer's allowlist enforcement is real and tested (12/12 routing decisions correct, kill switch verified). Nothing needs your attention right now. Honest gap: nothing runs unattended yet — no Docker host, no live trigger, no escalation channel connected. See <a href="../ops/RUNBOOK.md" style="color:var(--accent-ink); font-weight:700;">ops/RUNBOOK.md</a> for exactly what's blocking it. Next up: Launch.</p>
+      </div>
+
+      <div class="grid kpi-grid">
+        <div class="card kpi fade">
+          <div class="top-row"><span class="chip live"><span class="dot"></span>Live</span></div>
+          <div class="num">8/10</div>
+          <div class="label">Lessons complete</div>
+        </div>
+        <div class="card kpi fade">
+          <div class="top-row"><span class="chip live"><span class="dot"></span>Live</span></div>
+          <div class="num">12/12</div>
+          <div class="label">Agent tests passed</div>
+        </div>
+        <div class="card kpi fade">
+          <div class="top-row"><span class="chip live"><span class="dot"></span>Live</span></div>
+          <div class="num">5</div>
+          <div class="label">Content ideas queued</div>
+        </div>
+        <div class="card kpi fade">
+          <div class="top-row"><span class="chip sample"><span class="dot"></span>Sample</span></div>
+          <div class="num">€0</div>
+          <div class="label">Revenue — connect Shopify</div>
+        </div>
+      </div>
+
+      <div class="grid two-col">
+        <div class="card elevated fade">
+          <div class="panel-head"><h2>Agent Activity</h2><a href="agents.html">View all →</a></div>
+          <div class="feed-item">
+            <div class="status-dot escalate"></div>
+            <div><div class="ftext"><strong>pro-lash-engagement</strong> escalated an adverse-reaction report — flagged for human reply, not answered automatically.</div><div class="ftime">Lesson 6 · Test 4</div></div>
+          </div>
+          <div class="feed-item">
+            <div class="status-dot escalate"></div>
+            <div><div class="ftext"><strong>pro-lash-content</strong> refused a fabricated-testimonial request — hard rule, no fake reviews ever.</div><div class="ftime">Lesson 6 · Test 4</div></div>
+          </div>
+          <div class="feed-item">
+            <div class="status-dot handled"></div>
+            <div><div class="ftext"><strong>pro-lash-engagement</strong> drafted a reply to the eye-irritation objection — on-brand, prostaglandin-free framing.</div><div class="ftime">Lesson 6 · Test 2</div></div>
+          </div>
+          <div class="feed-item">
+            <div class="status-dot handled"></div>
+            <div><div class="ftext"><strong>pro-lash-content</strong> drafted 5 launch-week hooks, each mapped to a necessary belief.</div><div class="ftime">Lesson 6 · Test 2</div></div>
+          </div>
+        </div>
+
+        <div class="card fade">
+          <div class="panel-head"><h2>Launch Readiness</h2></div>
+          <div class="bar-track"><div class="bar-fill" style="width:80%;"></div></div>
+          <div class="readiness-row"><span class="n">00</span><span class="rt done">Intro</span><span class="rstat done">Done</span></div>
+          <div class="readiness-row"><span class="n">01</span><span class="rt done">Deep Research</span><span class="rstat done">Done</span></div>
+          <div class="readiness-row"><span class="n">02</span><span class="rt done">Brand Guide</span><span class="rstat done">Done</span></div>
+          <div class="readiness-row"><span class="n">03</span><span class="rt done">design.md</span><span class="rstat done">Done</span></div>
+          <div class="readiness-row"><span class="n">04</span><span class="rt done">Hero Video</span><span class="rstat done">Done</span></div>
+          <div class="readiness-row"><span class="n">05</span><span class="rt done">Website</span><span class="rstat done">Done</span></div>
+          <div class="readiness-row"><span class="n">06</span><span class="rt done">AI Agents</span><span class="rstat done">Done</span></div>
+          <div class="readiness-row"><span class="n">07</span><span class="rt done">Dashboard</span><span class="rstat done">Done</span></div>
+          <div class="readiness-row"><span class="n">08</span><span class="rt">Hermes</span><span class="rstat now">Now</span></div>
+          <div class="readiness-row"><span class="n">09</span><span class="rt">Launch</span><span class="rstat next">Next</span></div>
+        </div>
+      </div>
+
+      <div class="grid quicklinks">
+        <a href="agents.html" class="card qlink fade"><span class="eyebrow">Agents</span><div class="qtitle">2 agents, 6/6 + 6/6 tests</div><div class="qdesc">Draft-only — nothing auto-sends yet.</div></a>
+        <a href="content.html" class="card qlink fade"><span class="eyebrow">Content</span><div class="qtitle">5 hooks queued</div><div class="qdesc">Idea → Drafted → Scheduled → Posted.</div></a>
+        <a href="growth.html" class="card qlink fade"><span class="eyebrow">Growth</span><div class="qtitle">Sample data</div><div class="qdesc">Connect Shopify/Klaviyo/social to go live.</div></a>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+  document.getElementById('dateLine').textContent = new Date().toLocaleDateString('en-US', { weekday:'long', year:'numeric', month:'long', day:'numeric' }) + ' · Last refreshed just now';
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade').forEach((el, i) => { el.style.transitionDelay = (i*30)+'ms'; observer.observe(el); });
+
+  function refreshAll() {
+    localStorage.setItem('pro_lash_last_refresh', new Date().toISOString());
+    document.getElementById('dateLine').textContent = new Date().toLocaleDateString('en-US', { weekday:'long', year:'numeric', month:'long', day:'numeric' }) + ' · Last refreshed just now';
+    // Live cards (lessons/agents/content) are read from real project files, not an API — nothing to re-pull here yet.
+    // Sample cards (Growth page) stay sample until Shopify/Klaviyo/social are connected.
+  }
+</script>
+</body>
+</html>

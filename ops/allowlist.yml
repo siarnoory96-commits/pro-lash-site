@@ -1,0 +1,46 @@
+# ops/allowlist.yml
+# The single, auditable source of what each agent may do.
+# The orchestrator (ops/orchestrator/run.py) reads this file and refuses any action not on it.
+# Pulled directly from agents/engagement-agent/spec.md and agents/content-agent/spec.md.
+
+agents:
+  pro-lash-engagement:
+    autonomous:                          # the safe ~90% it may draft alone (draft-only — nothing sends itself)
+      - reply_objection_irritation_fear
+      - reply_objection_extension_safety
+      - reply_objection_organic_weaker
+      - reply_objection_price_vs_competitors
+      - reply_objection_tried_before
+      - reply_friendly_comment
+      - reply_prelaunch_status
+    human_in_the_loop:                   # drafted, never executed alone
+      - reply_adverse_reaction           # health/safety risk
+      - reply_press_or_collab_inquiry    # reputation-at-risk
+      - reply_orders_refunds_money       # no live store-order system connected yet
+    escalate_when:
+      - required_fact_not_in_foundation_files
+      - sentiment_angry_distressed_legal
+      - explicit_request_for_human
+    key: INSTAGRAM_TOKEN                 # not yet provisioned — no Business API access exists
+    key_status: NOT_PROVISIONED
+
+  pro-lash-content:
+    autonomous:                          # drafts only — nothing posts itself
+      - caption_for_approved_asset
+      - content_idea_mapped_to_belief
+      - posting_calendar_draft
+      - reply_to_own_post_comment_known_objection
+    human_in_the_loop:
+      - caption_with_specific_result_number   # must come from a human-supplied real figure
+    escalate_when:
+      - request_fabricated_testimonial        # HARD rule — never generated, always escalated
+      - request_invented_stat_or_percentage
+      - request_named_competitor_comparison
+      - request_fake_urgency_or_scarcity
+    key: null                            # no posting tool connected — pure draft agent, no key needed yet
+    key_status: NOT_APPLICABLE
+
+# Access paradox, applied: pro-lash-engagement has the broader real-world reach (customer-facing
+# replies), so its human_in_the_loop list is the longer and stricter of the two. Neither agent
+# currently holds a live key — both stay in draft/dry-run mode until one is provisioned AND a
+# fresh test round passes against the live tool (see agents/README.md).

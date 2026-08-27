@@ -1,0 +1,9 @@
+# Hermes / ops — never commit secrets or local runtime state
+ops/.env
+ops/audit.log
+ops/HALT
+
+# OS cruft
+.DS_Store
+**/.DS_Store
+Claude

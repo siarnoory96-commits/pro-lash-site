@@ -72,7 +72,7 @@ Pro Lash — a vegan, prostaglandin-free lash-growth serum formulated by a six-y
 
 ## Proof Discipline (carries over from `claude-project-instructions.md`)
 
-Never state a claim not sourced in `project-knowledge.md` or `deepresearch.md`. Currently off-limits: specific % / sample size behind "clinically proven," guarantee terms, postpartum/hormonal claims, payment structure. Confirmed and safe to use: prostaglandin-free, vegan, the ingredient list (peptides, hyaluronic acid, vegetable keratin, biotin, pumpkin seed oil), extension-safe, founder's six years as a lash technician.
+Never state a claim not sourced in `project-knowledge.md` or `deepresearch.md`. Currently off-limits: specific % / sample size behind "clinically proven," guarantee terms, postpartum/hormonal claims, payment structure. Confirmed and safe to use: prostaglandin-free, vegan, the real ingredient list (four named peptides, hyaluronic acid, biotin, ginseng, saw palmetto, pumpkin seed extract — full INCI breakdown in `offerbrief.md`), CE/CPNP/SCPN/RoHS certifications, extension-safe, founder's six years as a lash technician.
 
 ---
 

@@ -4,7 +4,7 @@
 - **Product:** A vegan, organic lash-growth serum, formulated by a six-year lash technician to strengthen and regrow natural lashes — including for people currently wearing lash extensions.
 - **Promise:** Stronger, longer, healthier natural lashes without the extension-adhesive conflict or eye-irritation risk associated with the prostaglandin-based serums most competitors use.
 - **Customer (one paragraph):** Primarily women 22–38 who currently or recently wore lash extensions and have noticed real damage to their natural lashes underneath — breakage, thinning, patchiness. She's already spending on lash maintenance, is beauty-engaged on Instagram/TikTok, and is skeptical by default because she's tried products that overpromised before. A secondary, overlapping segment: young mothers who are newly ingredient-conscious across their whole routine (not just lashes) and actively seek "clean" formulations.
-- **Unique mechanism:** A confirmed prostaglandin-free, vegan formula (peptides, hyaluronic acid, vegetable keratin, biotin, pumpkin seed oil) built specifically to be safe under extensions and to reverse the exact damage pattern extension wear causes — backed by both founder credibility (six years as a working lash tech) and clinically proven results.
+- **Unique mechanism:** A confirmed prostaglandin-free, vegan formula (four named peptides, hyaluronic acid, biotin, ginseng, saw palmetto, pumpkin seed extract — real supplier spec sheet, see `offerbrief.md` for full INCI list) built specifically to be safe under extensions and to reverse the exact damage pattern extension wear causes — backed by founder credibility, real regulatory certifications (CE/CPNP/SCPN/RoHS), and clinically proven results.
 - **Price:** €29.49 for one serum, €47.99 for two (both below the £35–38 single-unit price of the two named category leaders).
 
 ## 2. Customer (condensed avatar)
@@ -44,13 +44,14 @@ Full version with bridges in `necessary-beliefs.md`.
   15. "gentle on sensitive eyes"
 
 ## 6. Proof Inventory (ranked by strength)
-1. **Prostaglandin-free + confirmed ingredient stack** — peptides, hyaluronic acid, vegetable keratin, biotin, pumpkin seed oil. Confirmed by founder; the single strongest differentiating claim in the category right now (see `deepresearch.md` Section 1). Fully usable.
+1. **Prostaglandin-free + confirmed ingredient stack** — real supplier spec sheet (Beijing Charming Biotechnology Co., Ltd.): four named peptides, hyaluronic acid, biotin, ginseng, saw palmetto, pumpkin seed extract. The single strongest differentiating claim in the category right now (see `deepresearch.md` Section 1), now backed by an actual document rather than a verbal claim. Fully usable.
 2. **Founder story** — six years as a working lash technician, direct repeated observation of the exact problem this product solves. Fully verified (founder's own account).
 3. **Category damage statistic** — ~30% of extension wearers experience documented lash breakage/thinning/loss (Journal of Cosmetic Dermatology figure, cited across multiple sources). Strong, sourced, usable now.
 4. **Clinically proven results** — confirmed by founder as a fact, but the underlying study detail (sample size, % results, timeframe, who conducted it) is not yet documented. Usable as a claim now; would become significantly stronger copy with the specifics.
-5. **Competitor irritation complaints** — real, documented Trustpilot/review complaints against Nanolash and UKLash. Usable as category-context, not as direct comparative claims without care (avoid naming competitors disparagingly without legal review).
-6. **Customer results/testimonials** — none yet; pre-launch brand. Priority to collect post-launch.
-7. **Guarantee** — not yet defined; recommended as a strategic addition (category comp: Trybello's 60-day money-back guarantee).
+5. **Regulatory certifications** — CE, CPNP, SCPN, RoHS, MSDS (confirmed via supplier's listing). Real, checkable compliance markers.
+6. **Competitor irritation complaints** — real, documented Trustpilot/review complaints against Nanolash and UKLash. Usable as category-context, not as direct comparative claims without care (avoid naming competitors disparagingly without legal review).
+7. **Customer results/testimonials** — none yet; pre-launch brand. Priority to collect post-launch.
+8. **Guarantee** — not yet defined; recommended as a strategic addition (category comp: Trybello's 60-day money-back guarantee).
 
 ## 7. Open Questions / Research Gaps
 - What's the underlying detail behind "clinically proven" — sample size, % improvement, timeframe, who conducted it? Turns an assertion into a quotable stat.

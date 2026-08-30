@@ -18,7 +18,7 @@
 **I believe that…** a lash serum can actually work without the eye irritation and safety risk I've heard about.
 
 - **Current belief:** "Lash serums work, but a lot of them irritate your eyes or aren't something you want to use long-term" — a belief directly reinforced by real, documented complaints (redness, swelling, even infections) against the two named category leaders.
-- **Bridge:** Contrast plainly: most big-name serums rely on prostaglandin-style actives, which is *why* the irritation complaints exist — it's a known, named ingredient-class issue, not user error. Pro Lash is confirmed prostaglandin-free, built instead on peptides, hyaluronic acid, vegetable keratin, and biotin. **This is the highest-leverage belief in the whole set and is now confirmed and clear to use in live copy.**
+- **Bridge:** Contrast plainly: most big-name serums rely on prostaglandin-style actives, which is *why* the irritation complaints exist — it's a known, named ingredient-class issue, not user error. Pro Lash is confirmed prostaglandin-free by the real supplier spec sheet, built instead on four named peptides, hyaluronic acid, biotin, ginseng, and saw palmetto. **This is the highest-leverage belief in the whole set — now backed by an actual ingredient document, not just a verbal claim — and is clear to use in live copy.**
 
 ## Belief 4
 **I believe that…** "organic and vegan" doesn't mean weaker or slower results.
